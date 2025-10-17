@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up - Safeguard Community</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="form-header">
+        <span class="logo">Safeguard Community</span>
+    </div>
+    <h2 class="signup-title">Create an Account</h2>
+
+    <form id="signupForm" novalidate>
+        <div class="input-group">
+            <input type="text" id="name" name="name" placeholder=" " required autocomplete="given-name" />
+            <label for="name">First Name</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="surname" name="surname" placeholder=" " required autocomplete="family-name" />
+            <label for="surname">Surname</label>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+            <label for="email">Email Address</label>
+        </div>
+
+        <!-- <div class="input-group">
+          <input id="phone" type="tel" name="phone" placeholder=" " required />
+          <label for="phone">Phone Number</label>
+        </div> -->
+
+        <div class="input-group">
+            <input type="password" id="password" name="password" placeholder=" " required minlength="6" />
+            <label for="password">Password</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="confirm_password" name="confirm_password" placeholder=" " required minlength="6" />
+            <label for="confirm_password">Confirm Password</label>
+        </div>
+
+        <div class="input-group">
+            <input type="date" id="dob" name="dob" placeholder=" " required max="" />
+            <label for="dob">Date of Birth</label>
+        </div>
+
+        <div class="input-group">
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected></option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="nonbinary">Non-binary</option>
+                <option value="prefer_not_to_say">Prefer not to say</option>
+            </select>
+            <label for="gender">Gender</label>
+        </div>
+
+        <!-- <div class="checkbox-group">
+            <label for="terms">I agree to the <a href="#" target="_blank" rel="noopener noreferrer">Terms & Conditions</a></label>
+            <input type="checkbox" id="terms" name="terms" required />
+        </div> -->
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>
