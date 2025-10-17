@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Safeguard community </title>
+    <link rel="stylesheet" href="css/login_style.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="form-header">
+        <span class="logo">Safeguard Community</span>
+    </div>
+    <form class="login-form">
+        <h2 class="login-title">Welcome Back</h2>
+        <div class="input-group">
+            <input id="email" type="email" name="email" required autocomplete="off" class="login-input">
+            <label class="login-label">Email</label>
+        </div>
+        <div class="input-group">
+            <input id="password" type="password" name="password" required autocomplete="off" class="login-input">
+            <label class="login-label">Password</label>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <div class="signup-prompt">
+            <span>Don't have an account?</span>
+            <a href="signup.html" class="signup-link">Sign up here</a>
+        </div>
+    </form>
+    <button class="create-btn" onclick="window.location.href='index.html'" style="margin: 1rem 0;">
+        ← Back to Home
+    </button>
+</div>
+<script src="js/login.js"></script>
+</body>
+</html>
