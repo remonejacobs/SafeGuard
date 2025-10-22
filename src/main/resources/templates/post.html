@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="../css/post.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                SafeGuard Community
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-link">← Back to Community</a>
+                <a href="qna.html" class="nav-link">AI Assistant</a>
+                <a href="#" class="nav-link">Resources</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <!-- Post Header -->
+            <div class="post-header">
+                <div class="breadcrumb">
+                    <a href="index.html">SafeGuard Community</a> / <a href="#">Scam Reports</a> / AI Voice Clone Scam
+                </div>
+
+                <span class="post-type scam-alert">🚨 SCAM ALERT</span>
+
+                <h1 class="post-title" id="post-title" th:text="${title}">AI Voice Clone Scam Targeting Seniors</h1>
+
+                <div class="post-meta">
+                    <div class="meta-item">
+                        <span>👤</span>
+                        <span id="post-author" th:text="${author}">@SafeUser123</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🕐</span>
+                        <span id="post-time" th:text="${period}">2 hours ago</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📍</span>
+                        <span id="post-location" th:text="${location}">Los Angeles, CA</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>👁️</span>
+                        <span th:text="${post.view_count}">247 views</span>
+                    </div>
+                </div>
+
+                <div class="post-tags" th:each="tag: ${tags}">
+                    <a href="#" class="tag" th:text="${tag}">#VoiceCloning</a>
+                </div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content" id="post-content">
+                <p><strong>🚨 URGENT WARNING:</strong> I need to share this experience to protect other families from a sophisticated AI voice cloning scam that nearly fooled my tech-savvy grandmother.</p>
+
+                <h4>What Happened:</h4>
+                <p>Yesterday at 3 PM, my 78-year-old grandmother received a call from someone who sounded EXACTLY like me. The caller said:</p>
+                <blockquote>"Grandma, it's me! I'm in trouble and need you to wire $2,000 immediately. I was in a car accident and I'm at the police station. Please don't tell my parents - I don't want them to worry. Can you help me?"</blockquote>
+
+                <h4>How They Did It:</h4>
+                <p>The scammers had scraped audio from my Instagram stories and TikTok videos where I talk directly to the camera. They used AI voice cloning technology to replicate my voice perfectly, including my speech patterns and the way I call her "Grandma."</p>
+
+                <h4>Red Flags That Saved Her:</h4>
+                <ul>
+                    <li>I never call her just "Grandma" - I always say "Hi Grandma Rose"</li>
+                    <li>The caller avoided answering when she asked about our last conversation</li>
+                    <li>There was no background noise you'd expect from a police station</li>
+                    <li>The urgency and secrecy request felt manipulative</li>
+                </ul>
+
+                <h4>How to Protect Your Family:</h4>
+                <ol>
+                    <li><strong>Set up code words:</strong> Have secret phrases for emergency situations</li>
+                    <li><strong>Always verify:</strong> Hang up and call the person's known number</li>
+                    <li><strong>Ask personal questions:</strong> Details only the real person would know</li>
+                    <li><strong>Trust your instincts:</strong> If something feels off, investigate</li>
+                    <li><strong>Limit social media audio:</strong> Be careful about posting videos with clear audio</li>
+                </ol>
+
+                <p><strong>Please share this to protect other families!</strong> These scams are becoming incredibly sophisticated and targeting our most vulnerable family members.</p>
+            </div>
+
+            <!-- Vote Section -->
+            <div class="vote-section">
+                <div class="vote-container">
+                    <button class="vote-btn upvote" onclick="vote('up')" id="upvote-btn">👍</button>
+                    <span class="vote-count" id="vote-count">24</span>
+                    <button class="vote-btn downvote" onclick="vote('down')" id="downvote-btn">👎</button>
+                </div>
+                <div class="share-section">
+                    <button class="share-btn" onclick="sharePost()">📤 Share</button>
+                    <button class="share-btn" onclick="reportPost()">🚩 Report</button>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <h2 class="comments-title">Discussion</h2>
+                    <span class="comment-count">8 comments</span>
+                </div>
+
+                <!-- Existing Comments -->
+                <div id="comments-container">
+                    <article class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                @CyberSecExpert
+                                <span class="expert-badge">Expert</span>
+                            </div>
+                            <div class="comment-time">1 hour ago</div>
+                        </div>
+                        <div class="comment-content">
+                            This is exactly why I tell my clients to set up family code words. AI voice cloning is getting scary good - I've seen cases where scammers only needed 10 seconds of audio from a social media video. Thanks for sharing this detailed warning!
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action" onclick="likeComment(1)">
+                                <span>👍</span> <span>12</span>
+                            </button>
+                            <button class="comment-action" onclick="replyToComment(1)">
+                                <span>💬</span> Reply
+                            </button>
+                            <button class="comment-action" onclick="shareComment(1)">
+                                <span>📤</span> Share
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">@GrandmaProtector</div>
+                            <div class="comment-time">45 minutes ago</div>
+                        </div>
+                        <div class="comment-content">
+                            Just showed this to my elderly mother. We're setting up a code word system today. She was shocked at how realistic these scams are becoming. Thank you for the warning - this could have saved us from a terrible situation!
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action" onclick="likeComment(2)">
+                                <span>👍</span> <span>8</span>
+                            </button>
+                            <button class="comment-action" onclick="replyToComment(2)">
+                                <span>💬</span> Reply
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">@TechSavvyGran</div>
+                            <div class="comment-time">30 minutes ago</div>
+                        </div>
+                        <div class="comment-content">
+                            I'm 82 and this terrifies me. How can they make it sound so real? What other signs should we look for? My grandson sounds different when he's stressed - would AI be able to replicate that?
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action" onclick="likeComment(3)">
+                                <span>👍</span> <span>15</span>
+                            </button>
+                            <button class="comment-action" onclick="replyToComment(3)">
+                                <span>💬</span> Reply
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                @CyberSecExpert
+                                <span class="expert-badge">Expert</span>
+                            </div>
+                            <div class="comment-time">25 minutes ago</div>
+                        </div>
+                        <div class="comment-content">
+                            @TechSavvyGran Great question! Current AI voice cloning struggles with: 1) Emotional nuances when stressed, 2) Background noise/environment sounds, 3) Spontaneous responses to unexpected questions, 4) Personal inside jokes or references. Always ask something personal that only they would know!
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action" onclick="likeComment(4)">
+                                <span>👍</span> <span>22</span>
+                            </button>
+                            <button class="comment-action" onclick="replyToComment(4)">
+                                <span>💬</span> Reply
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Add Comment Form -->
+                <div class="add-comment">
+                    <h4>💬 Join the Discussion</h4>
+                    <div class="comment-form">
+                        <textarea
+                                class="comment-input"
+                                id="new-comment"
+                                placeholder="Share your experience, ask questions, or provide additional safety tips to help the community..."
+                        ></textarea>
+                        <div class="comment-form-actions">
+                            <div style="font-size: 0.9rem; color: #6c757d;">
+                                💡 Tip: Share specific details that could help others identify similar scams
+                            </div>
+                            <button class="comment-submit" onclick="addComment()">
+                                Post Comment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+</body>
+</html>
