@@ -60,7 +60,7 @@
             </div>
 
             <!-- Post Content -->
-            <div class="post-content" id="post-content">
+            <div class="post-content" id="post-content" th:text="${content}">
                 <p><strong>🚨 URGENT WARNING:</strong> I need to share this experience to protect other families from a sophisticated AI voice cloning scam that nearly fooled my tech-savvy grandmother.</p>
 
                 <h4>What Happened:</h4>
@@ -94,7 +94,7 @@
             <div class="vote-section">
                 <div class="vote-container">
                     <button class="vote-btn upvote" onclick="vote('up')" id="upvote-btn">👍</button>
-                    <span class="vote-count" id="vote-count">24</span>
+                    <span class="vote-count" id="vote-count" th:text="${likes}">24</span>
                     <button class="vote-btn downvote" onclick="vote('down')" id="downvote-btn">👎</button>
                 </div>
                 <div class="share-section">
@@ -107,25 +107,25 @@
             <div class="comments-section">
                 <div class="comments-header">
                     <h2 class="comments-title">Discussion</h2>
-                    <span class="comment-count">8 comments</span>
+                    <span class="comment-count" th:text="${comment_count} + ' comments'">8 comments</span>
                 </div>
 
                 <!-- Existing Comments -->
-                <div id="comments-container">
+                <div id="comments-container" th:each="comment: ${comments}">
                     <article class="comment">
                         <div class="comment-header">
-                            <div class="comment-author">
+                            <div class="comment-author" th:text="comment.author">
                                 @CyberSecExpert
-                                <span class="expert-badge">Expert</span>
+                                <span class="expert-badge" th:text="comment.badge">Expert</span>
                             </div>
-                            <div class="comment-time">1 hour ago</div>
+                            <div class="comment-time" th:text="{comment.period}">1 hour ago</div>
                         </div>
-                        <div class="comment-content">
+                        <div class="comment-content" th:text="${comment.content}">
                             This is exactly why I tell my clients to set up family code words. AI voice cloning is getting scary good - I've seen cases where scammers only needed 10 seconds of audio from a social media video. Thanks for sharing this detailed warning!
                         </div>
                         <div class="comment-actions">
                             <button class="comment-action" onclick="likeComment(1)">
-                                <span>👍</span> <span>12</span>
+                                <span>👍</span> <span th:text="${comment.likes}">12</span>
                             </button>
                             <button class="comment-action" onclick="replyToComment(1)">
                                 <span>💬</span> Reply
@@ -135,66 +135,9 @@
                             </button>
                         </div>
                     </article>
-
-                    <article class="comment">
-                        <div class="comment-header">
-                            <div class="comment-author">@GrandmaProtector</div>
-                            <div class="comment-time">45 minutes ago</div>
-                        </div>
-                        <div class="comment-content">
-                            Just showed this to my elderly mother. We're setting up a code word system today. She was shocked at how realistic these scams are becoming. Thank you for the warning - this could have saved us from a terrible situation!
-                        </div>
-                        <div class="comment-actions">
-                            <button class="comment-action" onclick="likeComment(2)">
-                                <span>👍</span> <span>8</span>
-                            </button>
-                            <button class="comment-action" onclick="replyToComment(2)">
-                                <span>💬</span> Reply
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="comment">
-                        <div class="comment-header">
-                            <div class="comment-author">@TechSavvyGran</div>
-                            <div class="comment-time">30 minutes ago</div>
-                        </div>
-                        <div class="comment-content">
-                            I'm 82 and this terrifies me. How can they make it sound so real? What other signs should we look for? My grandson sounds different when he's stressed - would AI be able to replicate that?
-                        </div>
-                        <div class="comment-actions">
-                            <button class="comment-action" onclick="likeComment(3)">
-                                <span>👍</span> <span>15</span>
-                            </button>
-                            <button class="comment-action" onclick="replyToComment(3)">
-                                <span>💬</span> Reply
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="comment">
-                        <div class="comment-header">
-                            <div class="comment-author">
-                                @CyberSecExpert
-                                <span class="expert-badge">Expert</span>
-                            </div>
-                            <div class="comment-time">25 minutes ago</div>
-                        </div>
-                        <div class="comment-content">
-                            @TechSavvyGran Great question! Current AI voice cloning struggles with: 1) Emotional nuances when stressed, 2) Background noise/environment sounds, 3) Spontaneous responses to unexpected questions, 4) Personal inside jokes or references. Always ask something personal that only they would know!
-                        </div>
-                        <div class="comment-actions">
-                            <button class="comment-action" onclick="likeComment(4)">
-                                <span>👍</span> <span>22</span>
-                            </button>
-                            <button class="comment-action" onclick="replyToComment(4)">
-                                <span>💬</span> Reply
-                            </button>
-                        </div>
-                    </article>
                 </div>
 
-                <!-- Add Comment Form -->
+                <!-- Add Comment Form (Needs to be done still)-->
                 <div class="add-comment">
                     <h4>💬 Join the Discussion</h4>
                     <div class="comment-form">
